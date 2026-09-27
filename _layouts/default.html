@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="author" content="{{ site.author }}">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="{{ site.tagline }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+
+  <!-- LaTeX.css — https://latex.vercel.app/ -->
+  <link rel="stylesheet" href="https://latex.vercel.app/style.css">
+  <link rel="stylesheet" href="{{ '/assets/css/notes.css' | relative_url }}">
+
+  {% feed_meta %}
+</head>
+<body class="libertinus latex-dark-auto">
+  <label class="theme-switch" title="Basculer en mode sombre">
+    <input type="checkbox" id="dark-mode-toggle" aria-label="Basculer en mode sombre">
+    <span class="theme-switch__track"><span class="theme-switch__thumb"></span></span>
+  </label>
+
+  {{ content }}
+
+  <footer class="pied">
+    <p>
+      <a href="{{ '/' | relative_url }}">{{ site.tagline }}</a> — {{ site.author }}.
+      Pour en discuter : <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+    </p>
+    <p>
+      Ces notes n'engagent que moi et ne constituent pas un conseil applicable
+      en l'état à une situation particulière.
+    </p>
+    <p>
+      <a href="https://evidentia.fr/#mentions">Mentions légales</a>. Ce site ne
+      comporte ni formulaire, ni mesure d'audience, ni cookie publicitaire.
+    </p>
+  </footer>
+
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+</body>
+</html>

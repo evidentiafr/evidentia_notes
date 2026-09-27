@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<h1>{{ site.title }}</h1>
+<p class="baseline">{{ site.tagline }} — {{ site.author }}</p>
+
+<div class="chapeau">
+  {{ content }}
+</div>
+
+{% for post in site.posts %}
+<article class="note">
+  <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+  <p class="note-meta">{{ post.date | date: "%B %Y" | capitalize }}</p>
+  {{ post.content }}
+</article>
+{% endfor %}
